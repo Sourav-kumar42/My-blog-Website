@@ -18,8 +18,31 @@ app.use(express.static("public"));
 
 
 app.get("/",function(req,res){
-  res.render("home")
+  res.render("home",{
+    startingContent:homeStartingContent
+  });
 });
+
+app.get("/contact",function(req,res){
+  res.render("contact",{
+    myContact : contactContent
+  });
+});
+
+app.get("/about",function(req,res){
+  res.render("about",{
+    aboutMe : aboutContent
+  });
+});
+
+app.get("/compose",function(req,res){
+  res.render("compose")
+});
+
+app.post("/compose",function(req,res){
+  let title = req.body.postTitle;
+  console.log(title);
+})
 
 
 
